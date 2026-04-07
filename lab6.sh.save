@@ -1,0 +1,50 @@
+#!/bin/bash
+echo "Directory Management"
+Directory Management
+while true
+do
+echo ""
+echo "1. create directory"
+echo "2. list directories"
+echo "3. delete directory"
+echo "4. exit"
+
+echo "enter your choice"
+read choice
+case $choice in
+1) 
+  echo "enter directory name to create"
+  read dirname 
+  mkdir "$dirname"
+  if [ $? -eq 0]; then 
+      echo "directory '$dirname' created successfully"
+  else 
+      echo "error creating directory"
+  fi
+  ;;
+
+2)
+   echo "directories in current location"
+   ls -d */ 
+   ;;
+3)
+   echo "enter the directory name to delete"
+   read dirname
+   rmdir "$dirname"
+   if [$? -eq 0]; then
+      ech   else
+      echo "error deleting directory (may not be empty)"
+   fi
+   ;;
+4)
+   echo "exiting program"
+   break
+   ;;
+
+*)
+   echo"invalid choice, try again"
+   ;;
+  esac
+done
+
+   
